@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}All Projects{% endblock %}
+
+{% block content %}
+<div class="all-projects-container">
+    <h2>All Projects</h2>
+
+    <form method="GET" action="" class="filter-form">
+        <label for="tag">Filter by Tag:</label>
+        <select name="tag_id" id="tag" class="input-select">
+            <option value="">-- Select Tag --</option>
+            {% for tag in tags %}
+                <option value="{{ tag.id }}">{{ tag.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="btn filter-btn">Search</button>
+    </form>
+
+    {% if projects %}
+        <div class="project-cards">
+            {% for project in projects %}
+            <div class="card">
+                <div class="card-content">
+                    <h3>{{ project.title }}</h3>
+                    <p><strong>Description:</strong> {{ project.description|truncatewords:20 }}</p>
+                    <p><strong>Team Members:</strong> {{ project.team_members }}</p>
+                    <p><strong>Faculty Members:</strong> {{ project.faculty_members }}</p>
+                    <p><strong>Department:</strong> {{ project.department }}</p>
+                    <p><strong>University:</strong> {{ project.university }}</p>
+
+                    {% if project.image %}
+                        <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-img" width="350">
+                    {% else %}
+                        <p>No image available</p>
+                    {% endif %}
+
+                    <a href="{% url 'project_detail' project.id %}" class="btn view-project-btn">View Project</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No projects found.</p>
+    {% endif %}
+</div>
+{% endblock %}
