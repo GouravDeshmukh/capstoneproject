@@ -1,0 +1,240 @@
+{% extends 'base.html' %}
+
+{% block title %}Create New Project{% endblock %}
+
+{% block content %}
+<style>
+    /* Container styling */
+    .create-project-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start; /* Align to the top */
+        padding: 40px 20px;
+        background-color: #f8f9fa;
+        min-height: 100vh;
+        width: 100%; /* Allow full width of the screen */
+        max-width: 1000px; /* Set the max-width to make the form wider */
+        margin: 0 auto; /* Centers the form container horizontally */
+    }
+
+    .form-card {
+        background: #ffffff;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 25px;
+        width: 100%; /* Take full width of its parent */
+    }
+
+
+    .form-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 25px;
+        color: #343a40;
+        text-align: center;
+    }
+
+    /* Form group styling */
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+        font-size: 14px;
+        color: #495057;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        outline: none;
+        transition: border-color 0.2s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+    }
+
+    .input-select {
+        height: auto;
+    }
+
+    /* Button styling - Compact and centered */
+    .btn {
+        display: inline-block;
+        background: #007bff;
+        color: #ffffff;
+        border: none;
+        padding: 8px 18px;
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        margin: 5px auto;
+        width: auto;
+    }
+
+    .btn:hover {
+        background: #0056b3;
+    }
+
+    /* Selected list styling */
+    .selected-list {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .selected-item {
+        background: #e9ecef;
+        color: #343a40;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    .selected-item:hover {
+        background: #ced4da;
+    }
+</style>
+
+<div class="create-project-container">
+    <div class="form-card">
+        <h2 class="form-title">Create New Project</h2>
+
+        <form method="POST" enctype="multipart/form-data" class="project-form">
+            {% csrf_token %}
+
+            <!-- Project Title -->
+            <div class="form-group">
+                <label for="id_title">Project Title</label>
+                {{ form.title }}
+            </div>
+
+            <!-- Project Description -->
+            <div class="form-group">
+                <label for="id_description">Project Description</label>
+                {{ form.description }}
+            </div>
+
+            <!-- Department -->
+            <div class="form-group">
+                <label for="id_department">Department</label>
+                {{ form.department }}
+            </div>
+
+            <!-- University -->
+            <div class="form-group">
+                <label for="id_university">University</label>
+                {{ form.university }}
+            </div>
+
+            <!-- Upload Project Files -->
+            <div class="form-group">
+                <label for="id_image">Project Image</label>
+                {{ form.image }}
+            </div>
+            <div class="form-group">
+                <label for="id_video">Project Video</label>
+                {{ form.video }}
+            </div>
+            <div class="form-group">
+                <label for="id_document">Project Document</label>
+                {{ form.document }}
+            </div>
+            <div class="form-group">
+                <label for="id_github_link">GitHub Link</label>
+                {{ form.github_link }}
+            </div>
+
+            <!-- Team Members -->
+            <div class="form-group">
+                <label for="team-members">Team Members</label>
+                <select id="team-members" name="team_members" class="input-select" multiple>
+                    {% for team_user in team_users %}
+                        <option value="{{ team_user.id }}">{{ team_user.user.username }}</option>
+                    {% endfor %}
+                </select>
+                <div id="selected-team-members" class="selected-list"></div>
+            </div>
+
+            <!-- Faculty Members -->
+            <div class="form-group">
+                <label for="faculty-members">Faculty Members</label>
+                <select id="faculty-members" name="faculty_members" class="input-select" multiple>
+                    {% for faculty_user in faculty_users %}
+                        <option value="{{ faculty_user.id }}">{{ faculty_user.user.username }}</option>
+                    {% endfor %}
+                </select>
+                <div id="selected-faculty-members" class="selected-list"></div>
+            </div>
+
+            <!-- Tags -->
+            <div class="form-group">
+                <label for="tags">Tags</label>
+                <select id="tags" name="tags" class="input-select" multiple>
+                    {% for tag in form.fields.tags.queryset %}
+                        <option value="{{ tag.id }}">{{ tag.name }}</option>
+                    {% endfor %}
+                </select>
+                <div id="selected-tags" class="selected-list"></div>
+            </div>
+
+            <!-- Add New Tags -->
+            <div class="form-group">
+                <label for="new-tags">Add New Tags</label>
+                <input type="text" id="new-tags" name="new_tags" placeholder="Enter new tags separated by commas" class="input-text">
+            </div>
+
+            <button type="submit" name="save" class="btn create-project-btn">Save</button>
+            <button type="submit" name="submit" class="btn create-project-btn">Submit</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function handleSelection(selectElementId, selectedListId) {
+        const selectElement = document.getElementById(selectElementId);
+        const selectedList = document.getElementById(selectedListId);
+
+        selectElement.addEventListener('change', () => {
+            selectedList.innerHTML = ''; // Clear previous selections
+            Array.from(selectElement.selectedOptions).forEach(option => {
+                const div = document.createElement('div');
+                div.className = 'selected-item';
+                div.textContent = option.text;
+                div.dataset.id = option.value;
+
+                // Add toggle functionality
+                div.addEventListener('click', () => {
+                    option.selected = false;
+                    div.remove();
+                });
+
+                selectedList.appendChild(div);
+            });
+        });
+    }
+
+    // Initialize dropdown handlers
+    handleSelection('team-members', 'selected-team-members');
+    handleSelection('faculty-members', 'selected-faculty-members');
+    handleSelection('tags', 'selected-tags');
+</script>
+{% endblock %}

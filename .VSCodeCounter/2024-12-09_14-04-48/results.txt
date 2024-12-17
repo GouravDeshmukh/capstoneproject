@@ -1,0 +1,82 @@
+Date : 2024-12-09 14:04:48
+Directory : f:\CapstoneP\Project
+Total : 47 files,  2735 codes, 166 comments, 532 blanks, all 3433 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| HTML     |         12 |      1,059 |         58 |        116 |      1,233 |
+| Python   |         33 |        909 |         92 |        266 |      1,267 |
+| CSS      |          1 |        765 |         16 |        149 |        930 |
+| Markdown |          1 |          2 |          0 |          1 |          3 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                           | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                              |         47 |      2,735 |        166 |        532 |      3,433 |
+| . (Files)                                                                      |          4 |         96 |         17 |         25 |        138 |
+| core                                                                           |          4 |        111 |         20 |         57 |        188 |
+| projects                                                                       |         26 |        704 |         55 |        185 |        944 |
+| projects (Files)                                                               |          9 |        387 |         39 |         87 |        513 |
+| projects\migrations                                                            |         17 |        317 |         16 |         98 |        431 |
+| static                                                                         |          1 |        765 |         16 |        149 |        930 |
+| static\css                                                                     |          1 |        765 |         16 |        149 |        930 |
+| templates                                                                      |         12 |      1,059 |         58 |        116 |      1,233 |
++--------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                       | language | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| f:\CapstoneP\Project\README.md                                                 | Markdown |          2 |          0 |          1 |          3 |
+| f:\CapstoneP\Project\cleardb.py                                                | Python   |         29 |          5 |          8 |         42 |
+| f:\CapstoneP\Project\core\__init__.py                                          | Python   |          0 |          0 |          1 |          1 |
+| f:\CapstoneP\Project\core\settings.py                                          | Python   |         77 |         19 |         45 |        141 |
+| f:\CapstoneP\Project\core\urls.py                                              | Python   |         24 |          1 |          4 |         29 |
+| f:\CapstoneP\Project\core\wsgi.py                                              | Python   |         10 |          0 |          7 |         17 |
+| f:\CapstoneP\Project\manage.py                                                 | Python   |         13 |          1 |          2 |         16 |
+| f:\CapstoneP\Project\migrate database.py                                       | Python   |         52 |         11 |         14 |         77 |
+| f:\CapstoneP\Project\projects\__init__.py                                      | Python   |          0 |          0 |          1 |          1 |
+| f:\CapstoneP\Project\projects\admin.py                                         | Python   |         42 |         10 |          9 |         61 |
+| f:\CapstoneP\Project\projects\apps.py                                          | Python   |          3 |          0 |          3 |          6 |
+| f:\CapstoneP\Project\projects\forms.py                                         | Python   |         40 |          0 |         10 |         50 |
+| f:\CapstoneP\Project\projects\migrations\0001_initial.py                       | Python   |         27 |          1 |          7 |         35 |
+| f:\CapstoneP\Project\projects\migrations\0002_auto_20241015_0707.py            | Python   |         34 |          1 |          6 |         41 |
+| f:\CapstoneP\Project\projects\migrations\0003_remove_project_project_images.py | Python   |         11 |          1 |          6 |         18 |
+| f:\CapstoneP\Project\projects\migrations\0004_auto_20241015_0756.py            | Python   |         34 |          1 |          6 |         41 |
+| f:\CapstoneP\Project\projects\migrations\0005_auto_20241015_0802.py            | Python   |         24 |          1 |          6 |         31 |
+| f:\CapstoneP\Project\projects\migrations\0006_auto_20241015_0826.py            | Python   |         12 |          1 |          6 |         19 |
+| f:\CapstoneP\Project\projects\migrations\0007_auto_20241015_1517.py            | Python   |         19 |          1 |          6 |         26 |
+| f:\CapstoneP\Project\projects\migrations\0008_auto_20241015_2314.py            | Python   |         26 |          1 |          6 |         33 |
+| f:\CapstoneP\Project\projects\migrations\0009_profile.py                       | Python   |         18 |          1 |          6 |         25 |
+| f:\CapstoneP\Project\projects\migrations\0010_auto_20241119_2104.py            | Python   |         18 |          1 |          6 |         25 |
+| f:\CapstoneP\Project\projects\migrations\0011_project_github_link.py           | Python   |         12 |          1 |          6 |         19 |
+| f:\CapstoneP\Project\projects\migrations\0012_auto_20241120_1247.py            | Python   |         18 |          1 |          6 |         25 |
+| f:\CapstoneP\Project\projects\migrations\0013_auto_20241120_1402.py            | Python   |         22 |          1 |          6 |         29 |
+| f:\CapstoneP\Project\projects\migrations\0014_auto_20241120_2230.py            | Python   |         18 |          1 |          6 |         25 |
+| f:\CapstoneP\Project\projects\migrations\0015_project_views.py                 | Python   |         12 |          1 |          6 |         19 |
+| f:\CapstoneP\Project\projects\migrations\0016_project_status.py                | Python   |         12 |          1 |          6 |         19 |
+| f:\CapstoneP\Project\projects\migrations\__init__.py                           | Python   |          0 |          0 |          1 |          1 |
+| f:\CapstoneP\Project\projects\models.py                                        | Python   |         54 |          1 |         13 |         68 |
+| f:\CapstoneP\Project\projects\signals.py                                       | Python   |          0 |          0 |          1 |          1 |
+| f:\CapstoneP\Project\projects\tests.py                                         | Python   |          1 |          1 |          2 |          4 |
+| f:\CapstoneP\Project\projects\urls.py                                          | Python   |         19 |          0 |          2 |         21 |
+| f:\CapstoneP\Project\projects\views.py                                         | Python   |        228 |         27 |         46 |        301 |
+| f:\CapstoneP\Project\static\css\style.css                                      | CSS      |        765 |         16 |        149 |        930 |
+| f:\CapstoneP\Project\templates\all_projects.html                               | HTML     |         97 |          6 |          7 |        110 |
+| f:\CapstoneP\Project\templates\base.html                                       | HTML     |         25 |          2 |          5 |         32 |
+| f:\CapstoneP\Project\templates\create_project.html                             | HTML     |        199 |          9 |         33 |        241 |
+| f:\CapstoneP\Project\templates\delete_project_confirm.html                     | HTML     |         10 |          1 |          3 |         14 |
+| f:\CapstoneP\Project\templates\edit_project.html                               | HTML     |         52 |          4 |          6 |         62 |
+| f:\CapstoneP\Project\templates\landing.html                                    | HTML     |        301 |         19 |         28 |        348 |
+| f:\CapstoneP\Project\templates\login.html                                      | HTML     |         38 |          3 |          3 |         44 |
+| f:\CapstoneP\Project\templates\my_projects.html                                | HTML     |        104 |          2 |          8 |        114 |
+| f:\CapstoneP\Project\templates\nav.html                                        | HTML     |         21 |          1 |          2 |         24 |
+| f:\CapstoneP\Project\templates\profile.html                                    | HTML     |         41 |          0 |          3 |         44 |
+| f:\CapstoneP\Project\templates\project_detail.html                             | HTML     |        101 |         11 |          9 |        121 |
+| f:\CapstoneP\Project\templates\signup.html                                     | HTML     |         70 |          0 |          9 |         79 |
+| Total                                                                          |          |      2,735 |        166 |        532 |      3,433 |
++--------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
